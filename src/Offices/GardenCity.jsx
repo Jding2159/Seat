@@ -19,8 +19,8 @@ import GC1F_17 from '../Desks/GC1F_17'
 import GC1F_18 from '../Desks/GC1F_18'
 import GC1F_19 from '../Desks/GC1F_19'
 import GC1F_20 from '../Desks/GC1F_20'
-import GC1F_Office from '../Desks/GC1F_Office'
-import GC1F_Conf from '../Desks/GC1F_Conf'
+import GC1F_OFFICE from '../Desks/GC1F_OFFICE'
+import GC1F_CONF from '../Desks/GC1F_CONF'
 
 function GardenCity(props) {
   return (
@@ -668,7 +668,7 @@ function GardenCity(props) {
           d="M0 751.486h26.997V792H0z"
         />
       </g>
-      <GC1F_Conf/>
+      <GC1F_CONF/>
       <g id="prefix__shape779-553" transform="translate(431.719 -236.25)">
         <path className="prefix__st1" d="M0 713.25h54.281V792H0z" />
       </g>
@@ -1327,7 +1327,7 @@ function GardenCity(props) {
       <GC1F_17 />
       <GC1F_15 />
       <GC1F_16 />
-      <GC1F_Office />
+      <GC1F_OFFICE />
       <g id="prefix__shape915-1135" transform="translate(258.125 -570.687)">
         <path
           strokeLinecap="round"

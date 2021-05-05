@@ -1,40 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import MemoGardenCity from './Offices/GardenCity.jsx';
-import { FirebaseContext } from './components/Firebase';
-import firebase from 'firebase'
+import GardenCity from './pages/GardenCity'
+import { FirebaseContext } from './components/Firebase/context';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 
 function App() {
-	// useEffect(() => {
-	//   db.collection("employees").get().then((querySnapshot) => {
-	//     querySnapshot.forEach((doc) => {
-	//         // doc.data() is never undefined for query doc snapshots
-	//         console.log(doc.id, " => ", doc.data());
-	//     });
-	// });
-	// })
-  const firebaseapp = firebase.firestore().collection('employees').onSnapshot(querySnapShot => {
-    querySnapShot.docs.map(doc => {
-      console.log(doc.data())
-    })
-  })
-  console.log(firebaseapp)
+	const { employees } = React.useContext(FirebaseContext);
+	console.log(employees);
+
 	return (
-		// <FirebaseContext.Consumer>
-    //   {(firebase => {
-    //     (firebase.employees().on('value', snapshot => {
-    //       console.log(snapshot.val())
-    //     }))
-    //     return (
-    //       <div>
-    //         Hello World!
-    //       </div>
-    //     )
-    //   })}
-		  <div className="App">
-				<MemoGardenCity />
-			</div>
-		// </FirebaseContext.Consumer>
+		<BrowserRouter>
+			<Route exact path="/">
+				<GardenCity />
+			</Route>
+		</BrowserRouter>
 	);
 }
 

@@ -1,5 +1,37 @@
 import React from 'react';
+import firebase from './firebase'
 
-const FirebaseContext = React.createContext(null);
+export const FirebaseContext = React.createContext(null)
 
-export default FirebaseContext;
+const FirebaseProvider = ({children}) => {
+
+  const employees = () => {
+   
+    let arr
+    
+      firebase.firestore().collection('employees').onSnapshot(querySnapShot => {
+
+     const arrOfEmployees = querySnapShot.docs.map(doc => {
+        return doc.data()
+      })
+
+      return arrOfEmployees
+    })
+
+   return arr
+  }
+  
+
+
+
+  return (
+    <FirebaseContext.Provider value={{employees: employees}}>
+      {children}
+    </FirebaseContext.Provider>
+
+  )
+}
+
+
+
+export default FirebaseProvider
