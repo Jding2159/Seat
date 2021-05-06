@@ -1,23 +1,22 @@
-import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import { FirebaseContext } from '../Firebase/context'
-
+import React, { useContext } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import { FirebaseContext } from "../Firebase/context";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    position: 'relative',
-    overflow: 'auto',
+    width: "100%",
+    position: "relative",
+    overflow: "auto",
   },
   listSection: {
-    backgroundColor: 'inherit',
+    backgroundColor: "inherit",
   },
   ul: {
-    backgroundColor: 'inherit',
+    backgroundColor: "inherit",
     padding: 0,
   },
 }));
@@ -25,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
 export default function PinnedSubheaderList() {
   const classes = useStyles();
 
-const { employees } = useContext(FirebaseContext)
+  const { employees } = useContext(FirebaseContext);
 
-    console.log(employees())
+  console.log(employees);
 
   return (
     <List className={classes.root} subheader={<li />}>
@@ -35,7 +34,7 @@ const { employees } = useContext(FirebaseContext)
         <li key={`section-${sectionId}`} className={classes.listSection}>
           <ul className={classes.ul}>
             <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
-            {[employees()].map((item) => (
+            {employees.map((item) => (
               <ListItem key={`item-${sectionId}-${item}`}>
                 <ListItemText primary={`Item ${item}`} />
               </ListItem>

@@ -1,26 +1,26 @@
 import * as React from "react";
-import GC1F_1 from '../Desks/GC1F_1'
-import GC1F_2 from '../Desks/GC1F_2'
-import GC1F_3 from '../Desks/GC1F_3'
-import GC1F_4 from '../Desks/GC1F_4'
-import GC1F_5 from '../Desks/GC1F_5'
-import GC1F_6 from '../Desks/GC1F_6'
-import GC1F_7 from '../Desks/GC1F_7'
-import GC1F_8 from '../Desks/GC1F_8'
-import GC1F_9 from '../Desks/GC1F_9'
-import GC1F_10 from '../Desks/GC1F_10'
-import GC1F_11 from '../Desks/GC1F_11'
-import GC1F_12 from '../Desks/GC1F_12'
-import GC1F_13 from '../Desks/GC1F_13'
-import GC1F_14 from '../Desks/GC1F_14'
-import GC1F_15 from '../Desks/GC1F_15'
-import GC1F_16 from '../Desks/GC1F_16'
-import GC1F_17 from '../Desks/GC1F_17'
-import GC1F_18 from '../Desks/GC1F_18'
-import GC1F_19 from '../Desks/GC1F_19'
-import GC1F_20 from '../Desks/GC1F_20'
-import GC1F_OFFICE from '../Desks/GC1F_OFFICE'
-import GC1F_CONF from '../Desks/GC1F_CONF'
+import GC1F_1 from "../Desks/GC1F_1";
+import GC1F_2 from "../Desks/GC1F_2";
+import GC1F_3 from "../Desks/GC1F_3";
+import GC1F_4 from "../Desks/GC1F_4";
+import GC1F_5 from "../Desks/GC1F_5";
+import GC1F_6 from "../Desks/GC1F_6";
+import GC1F_7 from "../Desks/GC1F_7";
+import GC1F_8 from "../Desks/GC1F_8";
+import GC1F_9 from "../Desks/GC1F_9";
+import GC1F_10 from "../Desks/GC1F_10";
+import GC1F_11 from "../Desks/GC1F_11";
+import GC1F_12 from "../Desks/GC1F_12";
+import GC1F_13 from "../Desks/GC1F_13";
+import GC1F_14 from "../Desks/GC1F_14";
+import GC1F_15 from "../Desks/GC1F_15";
+import GC1F_16 from "../Desks/GC1F_16";
+import GC1F_17 from "../Desks/GC1F_17";
+import GC1F_18 from "../Desks/GC1F_18";
+import GC1F_19 from "../Desks/GC1F_19";
+import GC1F_20 from "../Desks/GC1F_20";
+import GC1F_OFFICE from "../Desks/GC1F_OFFICE";
+import GC1F_CONF from "../Desks/GC1F_CONF";
 
 function GardenCity(props) {
   return (
@@ -668,7 +668,7 @@ function GardenCity(props) {
           d="M0 751.486h26.997V792H0z"
         />
       </g>
-      <GC1F_CONF/>
+      <GC1F_CONF />
       <g id="prefix__shape779-553" transform="translate(431.719 -236.25)">
         <path className="prefix__st1" d="M0 713.25h54.281V792H0z" />
       </g>
