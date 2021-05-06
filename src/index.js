@@ -5,14 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import FirebaseContextProvider from './components/Firebase/context';
 import ReactDOM from 'react-dom';
-import Demo from './Navbar/Demo';
 
 
 
 ReactDOM.render(
 	<React.StrictMode>
 		<FirebaseContextProvider>
-			<Demo />
 			<App />
 		</FirebaseContextProvider>
 	</React.StrictMode>,

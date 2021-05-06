@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
 import GardenCity from './pages/GardenCity'
-import { FirebaseContext } from './components/Firebase/context';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-
+import Nav from './Navbar/Nav'
 
 function App() {
-	const { employees } = React.useContext(FirebaseContext);
-	console.log(employees);
+
 
 	return (
 		<BrowserRouter>
+			<Nav/>
 			<Route exact path="/">
 				<GardenCity />
 			</Route>

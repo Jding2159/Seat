@@ -30,18 +30,11 @@ export default function PinnedSubheaderList() {
 
   return (
     <List className={classes.root} subheader={<li />}>
-      {[0].map((sectionId) => (
-        <li key={`section-${sectionId}`} className={classes.listSection}>
-          <ul className={classes.ul}>
-            <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
             {employees.map((item) => (
-              <ListItem key={`item-${sectionId}-${item}`}>
-                <ListItemText primary={`Item ${item}`} />
+              <ListItem key={"item" + item.id}>
+                <ListItemText primary={`Item ${item.Name}`} />
               </ListItem>
             ))}
-          </ul>
-        </li>
-      ))}
     </List>
   );
 }
