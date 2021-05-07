@@ -3,14 +3,20 @@ import EmployeesList from '../components/EmployeesList/Employeeslist';
 import MemoGardenCity from '../Offices/GardenCity';
 import Drawer from '../components/Draw/Draw';
 import styles from './styles/gardencity.module.scss';
+import SelectedEmployeeInfo from '../components/SelectedInfoBoxes/SelectedEmployeeInfo'
+import SelectedDeskInfo from '../components/SelectedInfoBoxes/SelectedDeskInfo'
 
-const { page_flex, employees_list, garden_city } = styles;
+
+const { page_flex, garden_city } = styles;
+
 const GardenCity = () => {
 	return (
 		<div className={page_flex}>
 			<div style={{height: '100%', width: "100%"}}>
 				<Drawer isOpen={true}>
 					<EmployeesList />
+					<SelectedEmployeeInfo/>
+					<SelectedDeskInfo/>
 				</Drawer>
 			</div>
 

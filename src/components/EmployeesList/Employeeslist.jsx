@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import { FirebaseContext } from "../Firebase/context";
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,17 +25,18 @@ const useStyles = makeStyles((theme) => ({
 export default function PinnedSubheaderList() {
   const classes = useStyles();
 
-  const { employees } = useContext(FirebaseContext);
+  const { employees, handleSelectEmployee } = useContext(FirebaseContext);
 
-  console.log(employees);
 
   return (
     <List className={classes.root} subheader={<li />}>
             {employees.map((item) => (
               <ListItem key={"item" + item.id}>
                 <ListItemText primary={`Item ${item.Name}`} />
+                <Button onClick={() => handleSelectEmployee(item.id)}> click to see information</Button>
               </ListItem>
             ))}
     </List>
   );
 }
+

@@ -1,11 +1,15 @@
 
 
 import React from 'react';
+import {FirebaseContext} from '../components/Firebase/context'
+
 
 function GC1F_11() {
+	const {handleSelectDesk} = React.useContext(FirebaseContext)
 	const [ active, setActive ] = React.useState(false);
 	const myDesk = React.useRef();
 	const handleClick = (evt) => {
+		handleSelectDesk("GC1F_11")
 		const deskElement = myDesk.current;
 		const deskCoordinates = deskElement.getBoundingClientRect();
 		console.log(evt.clientX, deskCoordinates.left);
