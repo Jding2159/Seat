@@ -8,7 +8,7 @@ function GC1F_10() {
 	const [ active, setActive ] = React.useState(false);
 	const myDesk = React.useRef();
 	const handleClick = (evt) => {
-		handleSelectDesk("GC1F_10")
+
 		const deskElement = myDesk.current;
 		const deskCoordinates = deskElement.getBoundingClientRect();
 		console.log(evt.clientX, deskCoordinates.left);
@@ -18,6 +18,7 @@ function GC1F_10() {
 			(deskCoordinates.top < evt.clientY && deskCoordinates.bottom > evt.clientY)
 		) {
 			console.log(true);
+			handleSelectDesk("GC1F_10")
 			setActive(!active);
 		} else console.log(false);
 	};

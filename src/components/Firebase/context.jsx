@@ -6,10 +6,24 @@ export const FirebaseContext = React.createContext(null);
 const FirebaseProvider = ({ children }) => {
 	const [ employees, setEmployees ] = useState([]);
 	const [ selectedEmployee, setSelectedEmployee ] = useState({});
-	const [ selectedDesk, setSelectedDesk ] = useState('');
+	const [ selectedDesks, setSelectedDesk ] = useState([]);
 
 	const handleSelectDesk = (deskId) => {
-		setSelectedDesk(deskId);
+		const onlyDeskIds = selectedDesks.map(desk => desk.deskId)
+		if(onlyDeskIds.includes(deskId)){
+			const filteredDesks = selectedDesks.filter(desk => desk.deskId !== deskId)
+			setSelectedDesk(filteredDesks)
+			return
+		}
+
+		/*
+		TODO
+		we are going to search for an employee 
+		that belongs to this desk before adding to state
+		*/
+		
+		const deskObj = {deskId: deskId, employee: null}
+		setSelectedDesk([...selectedDesks, deskObj]);
 	};
 
 	const handleSelectEmployee = (id) => {
@@ -36,7 +50,7 @@ const FirebaseProvider = ({ children }) => {
 				handleSelectEmployee: handleSelectEmployee,
 				selectedEmployee: selectedEmployee,
 				handleSelectDesk: handleSelectDesk,
-        selectedDesk: selectedDesk
+        selectedDesks: selectedDesks
 			}}
 		>
 			{children}

@@ -6,7 +6,7 @@ const styles = () =>
             height: '100%',
             background: 'white',
             height: '100%',
-            width: '200px',
+            width: '500px',
             zIndex: 200,
             boxShadow: '1px 0px 7px rgba(0,0,0,0.5)',
             transform: 'translateX(100%)',
