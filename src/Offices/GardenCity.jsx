@@ -19,8 +19,8 @@ import GC1F_17 from "../Desks/GC1F_17";
 import GC1F_18 from "../Desks/GC1F_18";
 import GC1F_19 from "../Desks/GC1F_19";
 import GC1F_20 from "../Desks/GC1F_20";
-import GC1F_OFFICE from "../Desks/GC1F_OFFICE";
-import GC1F_CONF from "../Desks/GC1F_CONF";
+import GC1F_OFFICE from "../Desks/GC1F_Office";
+import GC1F_CONF from "../Desks/GC1F_Conf";
 
 function GardenCity(props) {
   return (
