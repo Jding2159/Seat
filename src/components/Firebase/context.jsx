@@ -7,6 +7,15 @@ const FirebaseProvider = ({ children }) => {
 	const [ employees, setEmployees ] = useState([]);
 	const [ selectedEmployee, setSelectedEmployee ] = useState({});
 	const [ selectedDesks, setSelectedDesk ] = useState([]);
+	const [modal, setModal] = useState(false)
+
+	const openModal = () => {
+		setModal(true)
+	}
+
+	const closeModal = () => {
+		setModal(false)
+	}
 
 	const handleSelectDesk = (deskId) => {
 		const onlyDeskIds = selectedDesks.map(desk => desk.deskId)
@@ -15,6 +24,8 @@ const FirebaseProvider = ({ children }) => {
 			setSelectedDesk(filteredDesks)
 			return
 		}
+
+
 
 		/*
 		TODO
@@ -50,7 +61,10 @@ const FirebaseProvider = ({ children }) => {
 				handleSelectEmployee: handleSelectEmployee,
 				selectedEmployee: selectedEmployee,
 				handleSelectDesk: handleSelectDesk,
-        selectedDesks: selectedDesks
+       			selectedDesks: selectedDesks,
+				openModal: openModal,
+				closeModal: closeModal,
+				modal: modal
 			}}
 		>
 			{children}
