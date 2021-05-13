@@ -15,15 +15,15 @@ import EmployeeList from "./EmployeesList";
 export default function MaxWidthDialog() {
   const { modal, closeModal } = React.useContext(FirebaseContext);
   const [searchParams, setSearchParams] = React.useState({
-    location: "",
-    department: "",
+    location: "None",
+    department: "None",
     searchInput: "",
   });
 
   const classes = useStyles();
 
   const handleChange = (e) => {
-    const { value, name } = e.target.value;
+    const { value, name } = e.target;
     setSearchParams({ ...searchParams, [name]: value });
   };
 
@@ -53,6 +53,7 @@ export default function MaxWidthDialog() {
                 value={searchParams.location}
                 onChange={handleChange}
               >
+                <MenuItem value={"None"}>None</MenuItem>
                 <MenuItem value={"new york"}>New York</MenuItem>
                 <MenuItem value={"ohio"}>Ohio</MenuItem>
               </Select>
@@ -66,13 +67,14 @@ export default function MaxWidthDialog() {
                 value={searchParams.department}
                 onChange={handleChange}
               >
+                <MenuItem value={"None"}>None</MenuItem>
                 <MenuItem value={"technology"}>Technology</MenuItem>
-                <MenuItem value={"human resources"}>Human Resources</MenuItem>
+                <MenuItem value={"human resource"}>Human Resources</MenuItem>
               </Select>
             </div>
           </form>
 
-          <EmployeeList />
+          <EmployeeList {...searchParams} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
