@@ -53,9 +53,18 @@ export default function MaxWidthDialog() {
                 value={searchParams.location}
                 onChange={handleChange}
               >
+				  {/* Fix {Locations} */}
                 <MenuItem value={"None"}>None</MenuItem>
                 <MenuItem value={"new york"}>New York</MenuItem>
-                <MenuItem value={"ohio"}>Ohio</MenuItem>
+                <MenuItem value={"garden city"}>Garden City</MenuItem>
+				<MenuItem value={"purchase"}>Purchase</MenuItem>
+				<MenuItem value={"boston"}>Boston</MenuItem>
+				<MenuItem value={"red bank"}>Red Bank</MenuItem>
+				<MenuItem value={"chicago"}>Chicago</MenuItem>
+				<MenuItem value={"san francisco"}>San Francisco</MenuItem>
+				<MenuItem value={"los angeles"}>Los Angeles</MenuItem>
+				<MenuItem value={"dallas"}>Dallas</MenuItem>
+				<MenuItem value={"miami"}>Miami</MenuItem>
               </Select>
             </div>
             <div className={classes.formItem}>
@@ -67,13 +76,40 @@ export default function MaxWidthDialog() {
                 value={searchParams.department}
                 onChange={handleChange}
               >
+			{/* Broke this thing */}
                 <MenuItem value={"None"}>None</MenuItem>
                 <MenuItem value={"technology"}>Technology</MenuItem>
-                <MenuItem value={"human resource"}>Human Resources</MenuItem>
+                <MenuItem value={"investment banking"}>Human Resources</MenuItem>
+				<MenuItem value={"human resource"}>Technology</MenuItem>
+                <MenuItem value={"research"}>Human Resources</MenuItem>
+				<MenuItem value={"developer"}>Technology</MenuItem>
+                <MenuItem value={"administration"}>Human Resources</MenuItem>
+				<MenuItem value={"management"}>Technology</MenuItem>
+                <MenuItem value={"accounting"}>Human Resources</MenuItem>
+				<MenuItem value={"legal"}>Technology</MenuItem>
+              </Select>
+            </div>
+
+			{/* Jason added another field */}
+			<div className={classes.formItem}>
+              <InputLabel id="demo-simple-select-label">Title</InputLabel>
+              <Select
+                name="title"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={searchParams.title}
+                onChange={handleChange}
+              >
+                <MenuItem value={"None"}>None</MenuItem>
+                <MenuItem value={"associate"}>Associate</MenuItem>
+                <MenuItem value={"vice president"}>Vice President</MenuItem>
+				<MenuItem value={"director"}>Director</MenuItem>
+
               </Select>
             </div>
           </form>
-
+		  
+		  
           <EmployeeList {...searchParams} />
         </DialogContent>
         <DialogActions>

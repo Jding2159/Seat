@@ -32,7 +32,7 @@ function Employee({ person }) {
           <Avatar alt={person.Name} src={person.Image} />
         </ListItemAvatar>
         <ListItemText
-          primary={person.Name}
+          primary={`Name : ` + person.FullName}
           secondary={
             <React.Fragment>
               <Typography
@@ -41,7 +41,7 @@ function Employee({ person }) {
                 className={classes.inline}
                 color="textPrimary"
               >
-                {person.Department}
+                {`Department : ` + person.Department}
               </Typography>
               <Typography
                 component="span"
@@ -49,7 +49,7 @@ function Employee({ person }) {
                 className={classes.inline}
                 color="textPrimary"
               >
-                {person.Location}
+                {`Location : ` + person.Location}
               </Typography>
             </React.Fragment>
           }
