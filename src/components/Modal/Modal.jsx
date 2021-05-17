@@ -76,21 +76,20 @@ export default function MaxWidthDialog() {
                 value={searchParams.department}
                 onChange={handleChange}
               >
-			{/* Broke this thing */}
                 <MenuItem value={"None"}>None</MenuItem>
                 <MenuItem value={"technology"}>Technology</MenuItem>
-                <MenuItem value={"investment banking"}>Human Resources</MenuItem>
-				<MenuItem value={"human resource"}>Technology</MenuItem>
-                <MenuItem value={"research"}>Human Resources</MenuItem>
-				<MenuItem value={"developer"}>Technology</MenuItem>
-                <MenuItem value={"administration"}>Human Resources</MenuItem>
-				<MenuItem value={"management"}>Technology</MenuItem>
-                <MenuItem value={"accounting"}>Human Resources</MenuItem>
-				<MenuItem value={"legal"}>Technology</MenuItem>
+                <MenuItem value={"investment banking"}>Investment Banking</MenuItem>
+				<MenuItem value={"human resource"}>Human Resource</MenuItem>
+                <MenuItem value={"research"}>Research</MenuItem>
+				<MenuItem value={"developer"}>Developer</MenuItem>
+                <MenuItem value={"administration"}>Administration</MenuItem>
+				<MenuItem value={"management"}>Management</MenuItem>
+                <MenuItem value={"accounting"}>Accounting</MenuItem>
+				<MenuItem value={"legal"}>Legal</MenuItem>
               </Select>
             </div>
 
-			{/* Jason added another field */}
+			{/* Jason added title field */}
 			<div className={classes.formItem}>
               <InputLabel id="demo-simple-select-label">Title</InputLabel>
               <Select
