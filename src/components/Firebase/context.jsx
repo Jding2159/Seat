@@ -8,8 +8,24 @@ const FirebaseProvider = ({ children }) => {
   const [selectedEmployee, setSelectedEmployee] = useState({});
   const [selectedDesks, setSelectedDesk] = useState([]);
   const [modal, setModal] = useState(false);
-
   const [editDeskId, setEditDeskid] = useState("");
+
+  //HOME WORK
+
+  // I NEED you to make a hash with keys of the deskIDs and values empty string
+
+  /*
+
+
+	// have a hash with keys with deskID 
+	and value of employee who is assigned
+
+
+*/
+
+  const FIXTHIS = {
+    GC1F_1: "",
+  };
 
   const openModal = (id) => {
     setModal(true);
@@ -41,41 +57,48 @@ const FirebaseProvider = ({ children }) => {
     setSelectedEmployee(employeeMatch);
   };
 
-  const EditEmployeeDesk = (id) => {
-      const db = firebase.firestore();
-      return db.collection("employees").onSnapshot((snapshot) => {
-      const data = [];
-      
-      snapshot.forEach((doc) => {
-        if(doc.id === id){
-          console.log(doc.Desk)
-          if( !doc.Desk ){
-            console.log('rset success')
-            db.collection('employees').doc(id).update({ Desk: ""})
-          } else {
-            console.log('create success')
-            db.collection('employees').doc(id).update({ Desk: editDeskId})
-          }
-      
+  const EditEmployeeDesk = async (id) => {
+    const db = firebase.firestore();
+    const employee = await (
+      await db.collection("employees").doc(id).get()
+    ).data();
+    if (employee.Desk === "" || employee.Desk !== editDeskId) {
+      await db
+        .collection("employees")
+        .doc(id)
+        .set({ ...employee, Desk: editDeskId });
+    } else {
+      await db
+        .collection("employees")
+        .doc(id)
+        .set({ ...employee, Desk: "editDeskId" });
+    }
 
-        } else {
-          db.collection('employees').doc(doc.id).update({ Desk: ""})
-        }
-      });
-
-      snapshot.forEach((doc) => data.push({ ...doc.data(), id: doc.id }));
-      setEmployees(data);
-    
+    //Find person who may be assigned to the desk that we are reassigning
+    const collection = await db.collection("employees").get();
+    collection.forEach((doc) => {
+      const employee = doc.data();
+      // if its not the same person that we have reassigned to the desk
+      // then lets remove the other person
+      if (doc.id !== id && employee.Desk === editDeskId) {
+        doc.ref.update({
+          Desk: "",
+        });
+      }
     });
-  }
+  };
 
-  useEffect(() => {
+  const getEmployees = () => {
     const db = firebase.firestore();
     return db.collection("employees").onSnapshot((snapshot) => {
-      const data = []; 
+      const data = [];
       snapshot.forEach((doc) => data.push({ ...doc.data(), id: doc.id }));
       setEmployees(data);
     });
+  };
+
+  useEffect(() => {
+    getEmployees();
   }, []);
 
   return (
@@ -91,7 +114,7 @@ const FirebaseProvider = ({ children }) => {
         modal: modal,
         editDeskId: editDeskId,
         setEditDeskid: setEditDeskid,
-        editEmployeeDesk: EditEmployeeDesk
+        editEmployeeDesk: EditEmployeeDesk,
       }}
     >
       {children}
