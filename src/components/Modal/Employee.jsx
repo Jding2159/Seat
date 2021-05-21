@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -23,23 +23,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-// Need to fix tooltip 
+// Need to fix tooltip
 
 function Employee({ person }) {
   const classes = useStyles();
-  const [isSelected, setIsSelected] = useState(false)
+  const [isSelected, setIsSelected] = useState(false);
+  const { editEmployeeDesk, editDeskId } = useContext(FirebaseContext);
+
   React.useEffect(() => {
-    if(person.Desk !== ""){
-      setIsSelected(true)
-    }else {
-      setIsSelected(false)
+    if (person.Desk === editDeskId) {
+      setIsSelected(true);
+    } else {
+      setIsSelected(false);
     }
-  },[person])
+  }, [person, editDeskId]);
 
-  console.log(person.Desk)
-
-   const {editEmployeeDesk} = useContext(FirebaseContext)
   return (
     <>
       <ListItem alignItems="flex-start">
