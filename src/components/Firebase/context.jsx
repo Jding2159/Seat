@@ -25,6 +25,23 @@ const FirebaseProvider = ({ children }) => {
 
   const FIXTHIS = {
     GC1F_1: "",
+    GC1F_2: "",
+    GC1F_3: "",
+    GC1F_4: "",
+    GC1F_5: "",
+    GC1F_6: "",
+    GC1F_7: "",
+    GC1F_8: "",
+    GC1F_9: "",
+    GC1F_10: "",
+    GC1F_11: "",
+    GC1F_12: "",
+    GC1F_13: "",
+    GC1F_14: "",
+    GC1F_15: "",
+    GC1F_16: "",
+    GC1F_17: "",
+    GC1F_18: "",
   };
 
   const openModal = (id) => {
