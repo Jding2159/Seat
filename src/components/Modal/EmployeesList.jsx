@@ -8,7 +8,6 @@ import Employee from "./Employee";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    maxWidth: "36ch",
     backgroundColor: theme.palette.background.paper,
   },
 }));
@@ -37,9 +36,11 @@ const Employees = ({ location, department, searchInput }) => {
     return false;
   };
 
-  console.log(location, department, searchInput);
   return (
-    <Paper style={{ maxHeight: 200, overflow: "auto" }}>
+    <Paper
+      elevation={0}
+      style={{ minHeight: 600, maxHeight: 600, overflow: "auto" }}
+    >
       <List className={classes.root}>
         {employees.map((person) => {
           if (checkQuery(person)) return null;

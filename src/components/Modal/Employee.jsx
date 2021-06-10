@@ -11,20 +11,6 @@ import { IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { FirebaseContext } from "../Firebase/context";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: "36ch",
-    backgroundColor: theme.palette.background.paper,
-  },
-  inline: {
-    display: "inline",
-    marginRight: "10px",
-  },
-}));
-
-// Need to fix tooltip
-
 function Employee({ person }) {
   const classes = useStyles();
   const [isSelected, setIsSelected] = useState(false);
@@ -40,14 +26,14 @@ function Employee({ person }) {
 
   return (
     <>
-      <ListItem alignItems="flex-start">
+      <ListItem className={classes.listItem} alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={person.Name} src={person.Image} />
         </ListItemAvatar>
         <ListItemText
           primary={person.FullName}
           secondary={
-            <React.Fragment>
+            <div className={classes.secondaryText}>
               <Typography
                 component="span"
                 variant="body2"
@@ -64,7 +50,7 @@ function Employee({ person }) {
               >
                 {`Location : ` + person.Location}
               </Typography>
-            </React.Fragment>
+            </div>
           }
         />
         <IconButton onClick={() => editEmployeeDesk(person.id)}>
@@ -75,5 +61,24 @@ function Employee({ person }) {
     </>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    maxWidth: "36ch",
+    backgroundColor: theme.palette.background.paper,
+  },
+  inline: {
+    display: "inline",
+    marginRight: "10px",
+  },
+  secondaryText: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  listItem: {
+    alignItems: "center",
+  },
+}));
 
 export default Employee;
