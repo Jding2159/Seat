@@ -10,20 +10,7 @@ const FirebaseProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [editDeskId, setEditDeskid] = useState("");
 
-  //HOME WORK
-
-  // I NEED you to make a hash with keys of the deskIDs and values empty string
-
-  /*
-
-
-	// have a hash with keys with deskID 
-	and value of employee who is assigned
-
-
-*/
-
-  const FIXTHIS = {
+  const [seats, setSeats] = useState({
     GC1F_1: "",
     GC1F_2: "",
     GC1F_3: "",
@@ -42,7 +29,7 @@ const FirebaseProvider = ({ children }) => {
     GC1F_16: "",
     GC1F_17: "",
     GC1F_18: "",
-  };
+  });
 
   const openModal = (id) => {
     setModal(true);
